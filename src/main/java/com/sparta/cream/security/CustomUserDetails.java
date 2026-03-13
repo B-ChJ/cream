@@ -1,11 +1,13 @@
 package com.sparta.cream.security;
 
-import com.sparta.cream.entity.UserRole;
 import java.util.Collection;
 import java.util.List;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.sparta.cream.domain.user.entity.UserRole;
 
 /**
  * Spring Security 인증 객체로 사용되는 사용자 정보입니다.

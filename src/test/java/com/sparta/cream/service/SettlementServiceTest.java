@@ -24,20 +24,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import com.sparta.cream.domain.bid.entity.Bid;
-import com.sparta.cream.domain.entity.Payment;
-import com.sparta.cream.domain.entity.Settlement;
-import com.sparta.cream.domain.status.PaymentStatus;
-import com.sparta.cream.domain.status.SettlementStatus;
+import com.sparta.cream.domain.payment.dto.response.SettlementDetailsResponse;
+import com.sparta.cream.domain.payment.dto.response.SettlementListResponse;
+import com.sparta.cream.domain.payment.entity.Payment;
+import com.sparta.cream.domain.payment.entity.Settlement;
+import com.sparta.cream.domain.payment.entity.status.PaymentStatus;
+import com.sparta.cream.domain.payment.entity.status.SettlementStatus;
+import com.sparta.cream.domain.payment.exception.SettlementErrorCode;
+import com.sparta.cream.domain.payment.repository.SettlementRepository;
+import com.sparta.cream.domain.payment.service.SettlementService;
+import com.sparta.cream.domain.product.entity.Product;
+import com.sparta.cream.domain.product.entity.ProductOption;
 import com.sparta.cream.domain.trade.entity.Trade;
-import com.sparta.cream.dto.response.SettlementDetailsResponse;
-import com.sparta.cream.dto.response.SettlementListResponse;
-import com.sparta.cream.entity.Product;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.UserRole;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
 import com.sparta.cream.exception.BusinessException;
-import com.sparta.cream.exception.SettlementErrorCode;
-import com.sparta.cream.repository.SettlementRepository;
 
 @ExtendWith(MockitoExtension.class)
 class SettlementServiceTest {

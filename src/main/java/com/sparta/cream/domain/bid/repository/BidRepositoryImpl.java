@@ -1,9 +1,9 @@
 package com.sparta.cream.domain.bid.repository;
 
 import static com.sparta.cream.domain.bid.entity.QBid.bid;
-import static com.sparta.cream.entity.QProduct.*;
-import static com.sparta.cream.entity.QProductCategory.*;
-import static com.sparta.cream.entity.QProductOption.*;
+import static com.sparta.cream.domain.product.entity.QProduct.*;
+import static com.sparta.cream.domain.product.entity.QProductCategory.*;
+import static com.sparta.cream.domain.product.entity.QProductOption.*;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;

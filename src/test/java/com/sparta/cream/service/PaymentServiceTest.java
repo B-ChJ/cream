@@ -23,27 +23,30 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import com.sparta.cream.client.PortOneApiClient;
 import com.sparta.cream.domain.bid.entity.Bid;
-import com.sparta.cream.domain.entity.Payment;
-import com.sparta.cream.domain.event.PaymentCompletedEvent;
 import com.sparta.cream.domain.notification.service.NotificationService;
-import com.sparta.cream.domain.status.PaymentStatus;
+import com.sparta.cream.domain.payment.dto.portone.PortOnePaymentResponse;
+import com.sparta.cream.domain.payment.dto.request.CompletePaymentRequest;
+import com.sparta.cream.domain.payment.dto.request.RefundPaymentRequest;
+import com.sparta.cream.domain.payment.dto.response.CompletePaymentResponse;
+import com.sparta.cream.domain.payment.dto.response.CreatePaymentResponse;
+import com.sparta.cream.domain.payment.dto.response.RefundPaymentResponse;
+import com.sparta.cream.domain.payment.entity.Payment;
+import com.sparta.cream.domain.payment.entity.status.PaymentStatus;
+import com.sparta.cream.domain.payment.event.PaymentCompletedEvent;
+import com.sparta.cream.domain.payment.exception.PaymentErrorCode;
+import com.sparta.cream.domain.payment.repository.PaymentHistoryRepository;
+import com.sparta.cream.domain.payment.repository.PaymentRepository;
+import com.sparta.cream.domain.payment.repository.RefundRepository;
+import com.sparta.cream.domain.payment.service.PaymentService;
+import com.sparta.cream.domain.payment.service.SettlementService;
+import com.sparta.cream.domain.product.entity.Product;
+import com.sparta.cream.domain.product.entity.ProductOption;
 import com.sparta.cream.domain.trade.entity.Trade;
 import com.sparta.cream.domain.trade.service.TradeService;
-import com.sparta.cream.dto.portone.PortOnePaymentResponse;
-import com.sparta.cream.dto.request.CompletePaymentRequest;
-import com.sparta.cream.dto.request.RefundPaymentRequest;
-import com.sparta.cream.dto.response.CompletePaymentResponse;
-import com.sparta.cream.dto.response.CreatePaymentResponse;
-import com.sparta.cream.dto.response.RefundPaymentResponse;
-import com.sparta.cream.entity.Product;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.UserRole;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
+import com.sparta.cream.domain.user.service.AuthService;
 import com.sparta.cream.exception.BusinessException;
-import com.sparta.cream.exception.PaymentErrorCode;
-import com.sparta.cream.repository.PaymentHistoryRepository;
-import com.sparta.cream.repository.PaymentRepository;
-import com.sparta.cream.repository.RefundRepository;
 
 @ExtendWith(MockitoExtension.class)
 class PaymentServiceTest {

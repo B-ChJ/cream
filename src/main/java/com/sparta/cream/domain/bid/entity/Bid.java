@@ -2,18 +2,31 @@ package com.sparta.cream.domain.bid.entity;
 
 import java.time.LocalDateTime;
 
-import com.sparta.cream.entity.BaseEntity;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.Users;
-import com.sparta.cream.exception.BidErrorCode;
-import com.sparta.cream.exception.BusinessException;
-import com.sparta.cream.exception.ErrorCode;
-
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import jakarta.persistence.*;
+import com.sparta.cream.domain.BaseEntity;
+import com.sparta.cream.domain.product.entity.ProductOption;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
+import com.sparta.cream.exception.BidErrorCode;
+import com.sparta.cream.exception.BusinessException;
+import com.sparta.cream.exception.ErrorCode;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -165,7 +178,7 @@ public class Bid extends BaseEntity {
 	 * @param comment 취소와 관련된 관리자 메모(코멘트)
 	 */
 	public void cancelByAdmin(Users admin, String reasonCode,  String comment) {
-		if (admin.getRole() != com.sparta.cream.entity.UserRole.ADMIN) {
+		if (admin.getRole() != UserRole.ADMIN) {
 			throw new BusinessException(ErrorCode.ACCESS_DENIED);
 
 		}

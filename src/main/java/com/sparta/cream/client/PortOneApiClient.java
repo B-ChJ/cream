@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.sparta.cream.config.PortOneConfig;
-import com.sparta.cream.dto.portone.PortOnePaymentResponse;
+import com.sparta.cream.domain.payment.dto.portone.PortOnePaymentResponse;
 
 import lombok.RequiredArgsConstructor;
 

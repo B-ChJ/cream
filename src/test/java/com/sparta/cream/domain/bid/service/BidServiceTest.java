@@ -1,7 +1,5 @@
 package com.sparta.cream.domain.bid.service;
 
-import static com.sparta.cream.domain.bid.entity.QBid.*;
-import static com.sparta.cream.entity.QProductOption.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
@@ -40,14 +38,14 @@ import com.sparta.cream.domain.bid.entity.BidType;
 import com.sparta.cream.domain.bid.entity.CancelReason;
 import com.sparta.cream.domain.bid.repository.BidRepository;
 import com.sparta.cream.domain.notification.service.NotificationService;
+import com.sparta.cream.domain.product.entity.ProductOption;
+import com.sparta.cream.domain.product.repository.ProductOptionRepository;
 import com.sparta.cream.domain.trade.service.TradeService;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.UserRole;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
+import com.sparta.cream.domain.user.repository.UserRepository;
 import com.sparta.cream.exception.BidErrorCode;
 import com.sparta.cream.exception.BusinessException;
-import com.sparta.cream.repository.ProductOptionRepository;
-import com.sparta.cream.repository.UserRepository;
 
 /**
  * 입찰 서비스(BidService) 단위테스트입니다.
@@ -60,38 +58,28 @@ import com.sparta.cream.repository.UserRepository;
 @ExtendWith(MockitoExtension.class)
 class BidServiceTest {
 
+	private final Long userId = 1L;
 	@InjectMocks
 	private BidService bidService;
-
 	@Mock
 	private BidRepository bidRepository;
-
 	@Mock
 	private ProductOptionRepository productOptionRepository;
-
 	@Mock
 	private NotificationService notificationService;
-
 	@Mock
 	private TradeService tradeService;
-
 	@Mock
 	private UserRepository userRepository;
-
 	@Mock
 	private RedissonClient redissonClient;
-
 	@Mock
 	private RBucket<Object> rBucket;
-
 	@Mock
 	private RScoredSortedSet<Object> rScoredSortedSet;
-
 	@Mock
 	private ApplicationEventPublisher eventPublisher;
-
 	private Users testUser;
-	private final Long userId = 1L;
 
 	@BeforeEach
 	void setUp() {

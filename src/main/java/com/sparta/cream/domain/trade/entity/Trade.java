@@ -2,8 +2,8 @@ package com.sparta.cream.domain.trade.entity;
 
 import java.time.LocalDateTime;
 
+import com.sparta.cream.domain.BaseEntity;
 import com.sparta.cream.domain.bid.entity.Bid;
-import com.sparta.cream.entity.BaseEntity;
 import com.sparta.cream.exception.BidErrorCode;
 import com.sparta.cream.exception.BusinessException;
 

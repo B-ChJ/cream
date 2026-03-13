@@ -21,13 +21,13 @@ import com.sparta.cream.domain.bid.entity.Bid;
 import com.sparta.cream.domain.bid.entity.BidStatus;
 import com.sparta.cream.domain.bid.entity.BidType;
 import com.sparta.cream.domain.bid.repository.BidRepository;
+import com.sparta.cream.domain.product.entity.Product;
+import com.sparta.cream.domain.product.entity.ProductOption;
 import com.sparta.cream.domain.trade.dto.TradeResponseDto;
 import com.sparta.cream.domain.trade.entity.Trade;
 import com.sparta.cream.domain.trade.event.TradeCancelledEvent;
 import com.sparta.cream.domain.trade.repository.TradeRepository;
-import com.sparta.cream.entity.Product;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.Users;
 import com.sparta.cream.exception.BusinessException;
 import com.sparta.cream.exception.ErrorCode;
 

@@ -1,10 +1,19 @@
 package com.sparta.cream.domain.notification.entity;
 
-import com.sparta.cream.entity.BaseEntity;
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import com.sparta.cream.domain.BaseEntity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
 
 /**
  * 사용자에게 전다뢰는 알림 정보를 관리하는 엔티티 클래스입니다.
@@ -45,7 +54,7 @@ public class Notification extends BaseEntity {
 	private LocalDateTime sentAt;
 
 	@Column(nullable = false)
-	private boolean isRead = false;
+	private final boolean isRead = false;
 
 	private LocalDateTime readAt;
 

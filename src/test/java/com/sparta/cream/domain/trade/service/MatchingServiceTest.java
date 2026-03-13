@@ -22,11 +22,11 @@ import com.sparta.cream.domain.bid.entity.BidStatus;
 import com.sparta.cream.domain.bid.entity.BidType;
 import com.sparta.cream.domain.bid.repository.BidRepository;
 import com.sparta.cream.domain.notification.service.NotificationService;
+import com.sparta.cream.domain.product.entity.ProductOption;
 import com.sparta.cream.domain.trade.entity.Trade;
 import com.sparta.cream.domain.trade.repository.TradeRepository;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.UserRole;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
 
 /**
  * MatchingService 에 대한 핵심 매칭 엔진 로직 테스트 클래스입니다.

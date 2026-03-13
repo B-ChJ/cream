@@ -1,12 +1,14 @@
 package com.sparta.cream.domain.trade.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.any;
+import static org.mockito.BDDMockito.anyLong;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import static org.mockito.ArgumentMatchers.anyString;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,13 +25,14 @@ import com.sparta.cream.domain.bid.entity.BidStatus;
 import com.sparta.cream.domain.bid.entity.BidType;
 import com.sparta.cream.domain.bid.repository.BidRepository;
 import com.sparta.cream.domain.notification.service.NotificationService;
+import com.sparta.cream.domain.product.entity.Product;
+import com.sparta.cream.domain.product.entity.ProductOption;
 import com.sparta.cream.domain.trade.entity.Trade;
 import com.sparta.cream.domain.trade.entity.TradeStatus;
 import com.sparta.cream.domain.trade.event.TradeCancelledEvent;
 import com.sparta.cream.domain.trade.repository.TradeRepository;
-import com.sparta.cream.entity.ProductOption;
-import com.sparta.cream.entity.UserRole;
-import com.sparta.cream.entity.Users;
+import com.sparta.cream.domain.user.entity.UserRole;
+import com.sparta.cream.domain.user.entity.Users;
 import com.sparta.cream.exception.BusinessException;
 
 /**
@@ -138,7 +141,7 @@ class TradeServiceTest {
 	 */
 	private ProductOption createOption(Long id) {
 		try {
-			com.sparta.cream.entity.Product product = com.sparta.cream.entity.Product.builder()
+			Product product = Product.builder()
 				.name("임시 상품명")
 				.build();
 

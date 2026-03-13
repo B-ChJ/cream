@@ -1,6 +1,6 @@
 package com.sparta.cream.domain.notification.listener;
 
-import com.sparta.cream.domain.event.PaymentCompletedEvent;
+import com.sparta.cream.domain.payment.event.PaymentCompletedEvent;
 import com.sparta.cream.domain.bid.event.BidChangedEvent;
 import com.sparta.cream.domain.notification.entity.NotificationType;
 import com.sparta.cream.domain.notification.service.NotificationService;

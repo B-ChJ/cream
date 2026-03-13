@@ -1,23 +1,26 @@
 package com.sparta.cream.security;
 
-import com.sparta.cream.entity.Users;
-import com.sparta.cream.exception.ErrorCode;
-import com.sparta.cream.jwt.JwtTokenProvider;
-import com.sparta.cream.repository.UserRepository;
-import io.jsonwebtoken.JwtException;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.sparta.cream.domain.user.entity.Users;
+import com.sparta.cream.domain.user.repository.UserRepository;
+import com.sparta.cream.exception.ErrorCode;
+import com.sparta.cream.jwt.JwtTokenProvider;
+
+import io.jsonwebtoken.JwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Authorization 헤더의 Bearer Access Token을 검증하고, 인증 컨텍스트에 사용자 정보를 등록합니다.
